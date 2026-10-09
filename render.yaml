@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: proof-bar
+    runtime: node
+    plan: free
+    buildCommand: echo "no build needed"
+    startCommand: node render/start.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: PROOF_AGENTS
+        value: pagu:Pagu
+      - key: BAR_PASSWORD
+        sync: false
+      - key: MCP_PATH
+        sync: false
